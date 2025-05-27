@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         greetingText = findViewById(R.id.lumiGreeting)
+        val btnMusic = findViewById<Button>(R.id.btnMusic)
+        val btnNotes = findViewById<Button>(R.id.btnNotes)
+        val btnCalculator = findViewById<Button>(R.id.btnCalculator)
+
+        // Обработка кнопок
+        btnMusic.setOnClickListener {
+            Toast.makeText(this, "Открываю музыку...", Toast.LENGTH_SHORT).show()
+            // В будущем: запуск плеера
+        }
+
+        btnNotes.setOnClickListener {
+            Toast.makeText(this, "Открываю заметки...", Toast.LENGTH_SHORT).show()
+            // В будущем: запуск заметок
+        }
+
+        btnCalculator.setOnClickListener {
+            Toast.makeText(this, "Открываю калькулятор...", Toast.LENGTH_SHORT).show()
+            // В будущем: запуск калькулятора
+        }
 
         // Проверка разрешения на микрофон
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
@@ -34,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Обработка результата запроса разрешения
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<out String>, grantResults: IntArray
     ) {
@@ -72,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                 greetingText.text = "Скажите «Люми»"
             }
 
-            // Повторный запуск
+            // Повторный запуск голосового ввода
             startVoiceRecognition()
         }
     }

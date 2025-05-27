@@ -1,4 +1,4 @@
-package com.example.lumi
+еpackage com.example.lumi
 
 import android.Manifest
 import android.app.Activity
@@ -36,8 +36,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnNotes.setOnClickListener {
-            Toast.makeText(this, "Открываю заметки...", Toast.LENGTH_SHORT).show()
-            // В будущем: запуск заметок
+    val intent = Intent(this, NotesActivity::class.java)
+    startActivity(intent)
+          // В будущем: запуск заметок
         }
 
         btnCalculator.setOnClickListener {

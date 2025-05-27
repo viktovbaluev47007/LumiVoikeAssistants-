@@ -42,10 +42,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnCalculator.setOnClickListener {
-            Toast.makeText(this, "Открываю калькулятор...", Toast.LENGTH_SHORT).show()
-            // В будущем: запуск калькулятора
-        }
-
+    val intent = Intent(this, CalculatorActivity::class.java)
+    startActivity(intent)
+}
+            
+        
         // Проверка разрешения на микрофон
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
             != PackageManager.PERMISSION_GRANTED) {

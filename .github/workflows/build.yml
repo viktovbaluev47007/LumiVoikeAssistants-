@@ -1,4 +1,4 @@
-name: Build APK
+6name: Build APK
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
       run: ./gradlew assembleDebug
 
     - name: Upload APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3.1.3
       with:
         name: Lumi-APK
         path: app/build/outputs/apk/debug/app-debug.apk
